@@ -22,7 +22,7 @@ intents.guilds = True
 
 bot = commands.Bot(command_prefix='!', intents=intents)
 BOT_TOKEN = os.getenv('BOT_TOKEN')
-RESET_STATE = 'aaaaaaa'
+RESET_STATE = 'aaaaaaaaa'
 
 @bot.event
 async def on_ready():
@@ -136,7 +136,7 @@ def expedition_state(owner) -> str:
                 raise KeyError
         while len(contents) < 3:
             contents.append(None)
-        result += f"1. {contents[0]} / 2. {contents[1]} / 3. {contents[2]}\n"
+        result += f" 1. {contents[0]} / 2. {contents[1]} / 3. {contents[2]}\n"
     return result
 
 @bot.command(name='깃헙', aliases=['깃허브', 'github'])
@@ -235,8 +235,8 @@ async def kouku_saton(ctx, alias=None):
         return
     await select_content(ctx, 2, alias)
     
-@bot.command(name='아브렐슈드13', aliases=['아브13', '노브13', '하브13', '하12노3', '아브3', '노브3', '하브3'])
-async def abrelshud3(ctx, alias=None):
+@bot.command(name='아브렐슈드', aliases=['아브', '노브', '하브'])
+async def abrelshud(ctx, alias=None):
     if alias is None:
         await ctx.send('Please specify your character by its class!')
         await ctx.message.add_reaction('❌')
@@ -267,19 +267,29 @@ async def illiakan(ctx, alias=None):
         return
     await select_content(ctx, 5, alias)
     
-@bot.command(name='상아탑', aliases=['상노탑', '상하탑', '아탑', '노탑', '하탑'])
+@bot.command(name='상아탑', aliases=['상노탑', '상하탑', '아탑', '노탑', '하탑', '상아', '상노', '상하'])
 async def voldis(ctx, alias=None):
     if alias is None:
         await ctx.send('Please specify your character by its class!')
         await ctx.message.add_reaction('❌')
         return
     await select_content(ctx, 6, alias) 
-
-@bot.command(name='아브렐슈드', aliases=['아브', '노브', '하브'])
-async def abrelshud(ctx, alias=None):
-    await ctx.send('Please try !아브13 or !아브4')
-    await ctx.message.add_reaction('❌')
-    return
+    
+@bot.command(name='카멘', aliases=['노멘', '하멘', '카멘12', '노멘12', '하멘12', '카멘13', '노멘13', '하멘13'])
+async def kamen(ctx, alias=None):
+    if alias is None:
+        await ctx.send('Please specify your character by its class!')
+        await ctx.message.add_reaction('❌')
+        return
+    await select_content(ctx, 7, alias) 
+    
+@bot.command(name='에키드나', aliases=['에키', '노키', '하키'])
+async def voldis(ctx, alias=None):
+    if alias is None:
+        await ctx.send('Please specify your character by its class!')
+        await ctx.message.add_reaction('❌')
+        return
+    await select_content(ctx, 8, alias) 
 
 async def select_content(ctx, content: int, alias: str, abrelshud4 = False):
     id = get_id(ctx)
