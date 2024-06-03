@@ -136,7 +136,7 @@ def expedition_state(owner) -> str:
                 raise KeyError
         while len(contents) < 3:
             contents.append(None)
-        result += f" 1. {contents[0]} / 2. {contents[1]} / 3. {contents[2]}\n"
+        result += f"1. {contents[0]} / 2. {contents[1]} / 3. {contents[2]}\n"
     return result
 
 @bot.command(name='깃헙', aliases=['깃허브', 'github'])
